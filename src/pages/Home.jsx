@@ -4,6 +4,7 @@ import '../styles/main.css'; // Import global styles
 
 const Home = () => {
   return (
+    <>
     <div className="home-section">
       <h1 className="home-title">Welcome to EventPlanner Assistant</h1>
       <p className="home-description">
@@ -13,6 +14,10 @@ const Home = () => {
         <button className="home-button">View Events</button>
       </Link>
     </div>
+    <div>
+      
+    </div>
+   </>
   );
 };
 

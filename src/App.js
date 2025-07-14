@@ -22,9 +22,6 @@ import ChatbotPage from "./pages/ChatbotPage";
 
 
 
-
-
-
 function App() {
   return (
     <Router>

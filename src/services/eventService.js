@@ -1,4 +1,4 @@
-import API from "../api";
+import API from "../Api";
 
 export const createEvent = async (eventData) => {
   const res = await API.post("/events", eventData);

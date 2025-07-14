@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import "../styles/main.css";  // or Chatbot.css
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([
@@ -19,7 +20,7 @@ const Chatbot = () => {
     setInput("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/chat", {
+      const response = await fetch("http://localhost:4000/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input }),
@@ -43,16 +44,19 @@ const Chatbot = () => {
   };
 
   return (
-    <div>
-      <div>
+    <div className="chatbot-container">
+      <div className="chat-messages">
         {messages.map((msg, idx) => (
-          <div key={idx} style={{ textAlign: msg.sender === "user" ? "right" : "left" }}>
-            <b>{msg.sender === "user" ? "You:" : "Bot:"}</b> {msg.text}
+          <div
+            key={idx}
+            className={`message ${msg.sender}`}
+          >
+            {msg.text}
           </div>
         ))}
         <div ref={chatEndRef} />
       </div>
-      <div>
+      <div className="chat-input">
         <input
           type="text"
           value={input}
